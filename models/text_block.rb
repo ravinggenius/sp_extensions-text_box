@@ -1,9 +1,5 @@
-class TextBlock
-  include DataMapper::Resource
-  include NodeExtension
+class TextBlock < Node
+  key :data, Text
 
-  property :id, Serial
-  property :data, Text, :required => true, :lazy => false
-
-  after :save, :set_id
+  validates_presence_of :data
 end
